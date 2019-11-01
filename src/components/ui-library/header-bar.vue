@@ -13,7 +13,7 @@
       </el-col>
       <el-col :span="4">
         <span>
-          登陆
+          <router-link to="/login">登陆</router-link>
         </span>
         <span>|</span>
         <span>
@@ -25,9 +25,9 @@
 </template>
 
 <script>
-    export default {
-        name: "headerBar"
-    }
+  export default {
+    name: 'headerBar'
+  }
 </script>
 
 <style scoped>

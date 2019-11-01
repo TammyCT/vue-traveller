@@ -1,7 +1,7 @@
 <template>
     <div class="main-box">
       <el-row :gutter="8" class="group-outer-box">
-      <el-col :span="2" v-for="item of searchGroup">
+      <el-col v-bind:span="2" v-for="(item, key, index) of searchGroup" v-bind:key="index">
         <el-card shadow="hover" class="group-box">
           {{item}}
         </el-card>
