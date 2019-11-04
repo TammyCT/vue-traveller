@@ -1,0 +1,50 @@
+<template>
+    <div class="header-item">
+        <!-- <template  v-if="userName" class="user-info-bar">
+          <el-avatar :src="this.headImg" class="header-img"></el-avatar>
+          {{userName}}
+        </template>
+        <template v-else>
+          <span>
+            <router-link to="/login">登陆</router-link>
+          </span>
+          <span>|</span>
+          <span>
+            注册
+          </span>
+        </template> -->
+
+            <router-link to="/login" class="router-link-active">登陆</router-link>
+          <span class="barrier">|</span>
+           <router-link to="/sign" class="router-link-active">注册</router-link>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: "user-info-bar",
+        props: ['userName','headImg'],
+    }
+
+</script>
+
+<style scoped>
+    .header-item{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .header-img{
+        margin-right: 15px;
+    }
+    .barrier{
+        padding-left : 5px;
+        padding-right: 5px; 
+        color: #909399;
+    }
+    .router-link-active{
+        color: #909399;
+    }
+</style>

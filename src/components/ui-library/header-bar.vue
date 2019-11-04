@@ -12,38 +12,40 @@
         </el-menu>
       </el-col>
       <el-col :span="4">
-        <span>
-          <router-link to="/login">登陆</router-link>
-        </span>
-        <span>|</span>
-        <span>
-          注册
-        </span>
+          <user-info-bar :userName="userName" :headImg="headImg"></user-info-bar>
       </el-col>
     </el-row>
   </el-header>
 </template>
 
 <script>
+  import userInfo from '../ui-library/user-info-bar'
   export default {
-    name: 'headerBar'
+    name: 'headerBar',
+    components: {
+      'user-info-bar' : userInfo
+    },
+    props: ['userName','headImg'],
   }
 </script>
 
 <style scoped>
 
 
-  el-header {
+  el-header{
     /*background-color: #B3C0D1;*/
     /*color: #333;*/
     text-align: center;
     line-height: 60px;
   }
 
-  .logo-pic{
+  .el-col{
     height: 60px;
   }
 
+  .logo-pic{
+    height: 60px;
+  }
 
 
 </style>

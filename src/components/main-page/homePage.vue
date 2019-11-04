@@ -1,9 +1,7 @@
 <template>
   <div>
     <el-container>
-      <header-bar>
-
-      </header-bar>
+      <header-bar :userName="info.userName" :headImg="info.head_img"></header-bar>
       <div>
         <el-main>
           <el-carousel trigger="click" height="447px">
@@ -12,12 +10,8 @@
             </el-carousel-item>
           </el-carousel>
         </el-main>
-        <search-box>
-
-        </search-box>
+        <search-box></search-box>
       </div>
-
-
       <el-footer>Footer</el-footer>
     </el-container>
   </div>
@@ -32,6 +26,19 @@
     components:{
       'header-bar' : headerBar,
       'search-box' : searchBox
+    },
+    data(){
+      return{
+        info : {
+          userName: null,
+          headImg: null
+        }
+      }
+    },
+    mounted () {
+      axios
+      .get('https://www.fastmock.site/mock/0111c474cd074875d548a8ad11ee4eb1/traveller/api/userInfo')
+      .then(response => (this.info = response.data));
     }
   }
 </script>
