@@ -1,12 +1,12 @@
 <template>
-        <el-form :model="firstSignForm" status-icon :rules="rules" ref="firstSignForm" label-width="100px" class="demo-firstSignForm">
-            <el-form-item label="用户名" required>
+        <el-form :model="firstSignForm" status-icon :rules="rules" ref="firstSignForm" label-width="150px" class="demo-firstSignForm">
+            <el-form-item :label="$t('message.sUserName')" required>
                 <el-input v-model="firstSignForm.userName" autocomplete="off"></el-input>
             </el-form-item>
-            <el-form-item label="密码" prop="pass" required>
+            <el-form-item :label="$t('message.sPassword')" prop="pass" required>
                 <el-input type="password" v-model="firstSignForm.pass" autocomplete="off" maxlength="10"></el-input>
             </el-form-item>
-            <el-form-item label="确认密码" prop="checkPass" required>
+            <el-form-item :label="$t('message.sConfirmPassword')" prop="checkPass" required>
                 <el-input type="password" v-model="firstSignForm.checkPass" autocomplete="off"></el-input>
             </el-form-item>
             <!-- <el-form-item>
@@ -22,7 +22,7 @@
         data() {
             var validatePass = (rule, value, callback) => {
                 if (value === '') {
-                callback(new Error('请输入密码'));
+                callback(new Error(this.$t('message.sPleaseInputPW')));
                 } else {
                 if (this.firstSignForm.checkPass !== '') {
                     this.$refs.firstSignForm.validateField('checkPass');
@@ -32,9 +32,9 @@
             };
             var validatePass2 = (rule, value, callback) => {
                 if (value === '') {
-                callback(new Error('请再次输入密码'));
+                callback(new Error(this.$t('message.sPleaseInputPWAgain')));
                 } else if (value !== this.firstSignForm.pass) {
-                callback(new Error('两次输入密码不一致!'));
+                callback(new Error(this.$t('message.sInconsistentpassword')));
                 } else {
                 callback();
                 }

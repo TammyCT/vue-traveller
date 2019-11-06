@@ -9,6 +9,7 @@
         </el-steps>
         <first-sign-page v-if="active == 0"></first-sign-page>
         <second-sign-page v-if="active == 1"></second-sign-page>
+        <third-sign-page v-if="active == 2"></third-sign-page>
         <el-button style="margin-top: 12px;" @click="next">下一步</el-button>
     </el-card>
     </div>
@@ -17,11 +18,13 @@
 <script>
     import firstPage from './first-page'
     import secondPage from './second-page'
+    import thirdPage from './third-page'
     export default {
         name: 'main-sign-page',
         components:{
             'first-sign-page' : firstPage,
-            'second-sign-page' : secondPage
+            'second-sign-page' : secondPage,
+            'third-sign-page' : thirdPage
         },
     data() {
         return {

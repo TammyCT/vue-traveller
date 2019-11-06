@@ -2,15 +2,24 @@
     <div class="header-item">
         <!-- <template  v-if="userName" class="user-info-bar">
           <el-avatar :src="this.headImg" class="header-img"></el-avatar>
-          {{userName}}
+          <el-dropdown>
+            <span class="el-dropdown-link">
+                {{userName}}<i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+                <el-dropdown-item>我的主页</el-dropdown-item>
+                <el-dropdown-item>写文章</el-dropdown-item>
+                <el-dropdown-item>登出</el-dropdown-item>
+            </el-dropdown-menu>
+            </el-dropdown>
         </template>
         <template v-else>
           <span>
-            <router-link to="/login">登陆</router-link>
+            <router-link to="/login" class="router-link-active">{{ $t('message.sLogin') }}</router-link>
           </span>
           <span>|</span>
           <span>
-            注册
+             <router-link to="/sign" class="router-link-active">{{ $t('message.sSignUp') }}</router-link>
           </span>
         </template> -->
 
@@ -29,6 +38,13 @@
 </script>
 
 <style scoped>
+    .el-dropdown-link {
+        cursor: pointer;
+        /* color: #409EFF; */
+    }
+    .el-icon-arrow-down {
+        font-size: 12px;
+    }
     .header-item{
         height: 100%;
         display: flex;

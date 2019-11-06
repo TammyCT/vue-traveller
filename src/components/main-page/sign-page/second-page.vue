@@ -2,9 +2,9 @@
     <el-form :model="secondSignForm" ref="secondSignForm" label-width="100px" class="demo-dynamic">
         <el-form-item
             prop="email"
-            label="邮箱"
+            :label="$t('message.sEmail')"
             :rules="[
-            { required: true, message: '请输入邮箱地址', trigger: 'blur' },
+            { required: true, message: $t('message.sPleaseInputEmail'), trigger: 'blur' },
             { type: 'email', message: '请输入正确的邮箱地址', trigger: ['blur', 'change'] }
             ]"
         >

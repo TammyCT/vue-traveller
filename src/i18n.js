@@ -20,8 +20,13 @@ export default new VueI18n({
         sSignUp: 'Sign Up',
         sUserName: 'Username',
         sPassword: 'Password',
+        sEmail: 'Email',
+        sConfirmPassword: 'Confirm Password',
         sPleaseInputUN: 'Please input your User Name',
-        sPleaseInputPW: 'Please input your Password'
+        sPleaseInputPW: 'Please input your Password',
+        sPleaseInputEmail: 'Please input your Email',
+        sPleaseInputPWAgain: 'Please input your Password Again',
+        sInconsistentpassword: 'Inconsistent Password'
       }
     },
     'zh-CN': {
@@ -33,8 +38,13 @@ export default new VueI18n({
         sSignUp: '注册',
         sUserName: '用户名',
         sPassword: '密码',
+        sEmail: '邮箱',
+        sConfirmPassword: '确认密码',
         sPleaseInputUN: '请输入用户名',
-        sPleaseInputPW: '请输入用户名密码'
+        sPleaseInputPW: '请输入密码',
+        sPleaseInputEmail: '请输入邮箱地址',
+        sPleaseInputPWAgain: '请再次输入密码',
+        sInconsistentpassword: '密码不一致'
       }
     }
   }
