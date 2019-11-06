@@ -2,15 +2,15 @@
     <div class="login-page">
     <el-card class="login-box">
         <img src="../../../static/TravellerLogo.png" alt="" class="logo-pic">
-        <el-form :label-position="right" label-width="80px" :model="formLabelAlign">
-            <el-form-item label="UserName">
-                <el-input placeholder="请输入用户名" v-model="loginForm.username"></el-input>
+        <el-form label-width="80px" :model="loginForm">
+            <el-form-item :label="$t('message.sUserName')">
+                <el-input :placeholder="$t('message.sPleaseInputUN')" v-model="loginForm.username"></el-input>
             </el-form-item>
-            <el-form-item label="Password">
-                <el-input placeholder="请输入密码" v-model="loginForm.password" show-password></el-input>
+            <el-form-item :label="$t('message.sPassword')">
+                <el-input :placeholder="$t('message.sPleaseInputPW')" v-model="loginForm.password" show-password></el-input>
             </el-form-item>
               <el-form-item>
-                <el-button type="primary" @click="login()">Login</el-button>
+                <el-button type="primary" @click="login()">{{$t('message.sLogin')}}</el-button>
             </el-form-item>
         </el-form>
     </el-card>

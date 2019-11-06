@@ -7,7 +7,8 @@
             <el-step title="Step 2"></el-step>
             <el-step title="Step 3"></el-step>
         </el-steps>
-        <first-sign-page></first-sign-page>
+        <first-sign-page v-if="active == 0"></first-sign-page>
+        <second-sign-page v-if="active == 1"></second-sign-page>
         <el-button style="margin-top: 12px;" @click="next">下一步</el-button>
     </el-card>
     </div>
@@ -15,10 +16,12 @@
 
 <script>
     import firstPage from './first-page'
+    import secondPage from './second-page'
     export default {
         name: 'main-sign-page',
         components:{
-            'first-sign-page' : firstPage
+            'first-sign-page' : firstPage,
+            'second-sign-page' : secondPage
         },
     data() {
         return {

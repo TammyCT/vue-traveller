@@ -14,9 +14,9 @@
           </span>
         </template> -->
 
-            <router-link to="/login" class="router-link-active">登陆</router-link>
+            <router-link to="/login" class="router-link-active">{{ $t('message.sLogin') }}</router-link>
           <span class="barrier">|</span>
-           <router-link to="/sign" class="router-link-active">注册</router-link>
+           <router-link to="/sign" class="router-link-active">{{ $t('message.sSignUp') }}</router-link>
     </div>
 </template>
 

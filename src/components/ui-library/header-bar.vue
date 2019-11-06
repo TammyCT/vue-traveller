@@ -6,16 +6,28 @@
       </el-col>
       <el-col :span="16">
         <el-menu class="el-menu-demo" mode="horizontal">
-          <el-menu-item index="1">首页</el-menu-item>
-          <el-menu-item index="2">目的地</el-menu-item>
-          <el-menu-item index="3">游记</el-menu-item>
+          <el-menu-item index="1">{{ $t('message.sHome') }}</el-menu-item>
+          <el-menu-item index="2">{{ $t('message.sDestination') }}</el-menu-item>
+          <el-menu-item index="3">{{ $t('message.sTravelRecord') }}</el-menu-item>
         </el-menu>
       </el-col>
-      <el-col :span="4">
+      <el-col :span="2">
           <user-info-bar :userName="userName" :headImg="headImg"></user-info-bar>
       </el-col>
+      <el-col :span="2">
+        <el-select  v-model="locale" @change="$i18n.locale = locale" placeholder="语言">
+          <el-option
+            v-for="item in options"
+            :key="item.value"
+            :label="item.label"
+            :value="item.value">
+          </el-option>
+        </el-select>
+      </el-col>
     </el-row>
+    
   </el-header>
+  
 </template>
 
 <script>
@@ -26,6 +38,19 @@
       'user-info-bar' : userInfo
     },
     props: ['userName','headImg'],
+    data() {
+      return {
+        locale: 'en-US',
+        options: [{
+          value: 'en-US',
+          label: 'English'
+        }, {
+          value: 'zh-CN',
+          label: '中文'
+        }],
+        value: ''
+      }
+    }
   }
 </script>
 
