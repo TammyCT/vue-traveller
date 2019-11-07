@@ -7,10 +7,10 @@
             <el-step title="Step 2"></el-step>
             <el-step title="Step 3"></el-step>
         </el-steps>
-        <first-sign-page v-if="active == 0"></first-sign-page>
-        <second-sign-page v-if="active == 1"></second-sign-page>
-        <third-sign-page v-if="active == 2"></third-sign-page>
-        <el-button style="margin-top: 12px;" @click="next">下一步</el-button>
+        <first-sign-page v-if="active == 0" :activePage="active" v-on:form-data="getFormData"></first-sign-page>
+        <second-sign-page v-if="active == 1" :activePage="active"></second-sign-page>
+        <third-sign-page v-if="active == 2" :activePage="active"></third-sign-page>
+        <el-button style="margin-top: 12px;" @click="next">{{$t('message.sNextStep')}}</el-button>
     </el-card>
     </div>
 </template>
@@ -19,6 +19,11 @@
     import firstPage from './first-page'
     import secondPage from './second-page'
     import thirdPage from './third-page'
+    import { EventBus } from '../../../services/event-bus.js';
+    export const SignUserForm = {
+        userName: null,
+        pass: null
+    }
     export default {
         name: 'main-sign-page',
         components:{
@@ -26,15 +31,33 @@
             'second-sign-page' : secondPage,
             'third-sign-page' : thirdPage
         },
-    data() {
-        return {
-            active: 0,
+        data() {
+            return {
+                active: 0,
+                currentStep: null,
+                form: SignUserForm
             };
+        },
+        mounted() {
+
         },
         methods: {
             next() {
-                
-                if (this.active++ > 2) this.active = 0;
+                // Send the event on a channel (i-got-clicked) with a payload (the click count.)
+                EventBus.$emit('sign-next', this.active);
+                if (this.currentStep === this.active && this.active < 2) {
+                    this.active++;
+                }
+            },
+            getFormData(formData) {
+                for(var i in this.form) {
+                      for(var key in formData) {
+                          if(key === i){
+                              this.form[i] = formData[key]
+                          }
+                      }
+                }
+                this.currentStep = this.active;
             }
         }
     }

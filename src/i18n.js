@@ -26,7 +26,8 @@ export default new VueI18n({
         sPleaseInputPW: 'Please input your Password',
         sPleaseInputEmail: 'Please input your Email',
         sPleaseInputPWAgain: 'Please input your Password Again',
-        sInconsistentpassword: 'Inconsistent Password'
+        sInconsistentpassword: 'Inconsistent Password',
+        sNextStep: 'Next'
       }
     },
     'zh-CN': {
@@ -44,7 +45,8 @@ export default new VueI18n({
         sPleaseInputPW: '请输入密码',
         sPleaseInputEmail: '请输入邮箱地址',
         sPleaseInputPWAgain: '请再次输入密码',
-        sInconsistentpassword: '密码不一致'
+        sInconsistentpassword: '密码不一致',
+        sNextStep: '下一步'
       }
     }
   }

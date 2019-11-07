@@ -30,6 +30,7 @@
 <script>
     export default {
         name: 'second-sign-page',
+        props: ['activePage'],
       data() {
         return {
             secondSignForm: {

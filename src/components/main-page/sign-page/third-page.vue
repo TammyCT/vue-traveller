@@ -6,5 +6,6 @@
 <script>
 export default {
     name: 'third-sign-page',
+    props: ['activePage'],
 }
 </script>
